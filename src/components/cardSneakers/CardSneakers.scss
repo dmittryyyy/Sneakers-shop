@@ -1,0 +1,124 @@
+.card {
+    border: 2px solid #e2dfdf;
+    padding: 25px;
+    max-width: 210px;
+    max-height: 260px;
+    border-radius: 40px;
+    align-items: center;
+    margin: 0 15px 40px 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+}
+
+.liked {
+    position: absolute;
+    cursor: pointer;
+}
+
+.cardTitle {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.cardBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardPrice {
+    font-size: 14px;
+    color: #b3afaf;
+}
+
+.btnCard {
+    cursor: pointer;
+}
+
+@media (max-width: 768.98px) {
+    .card {
+        max-width: 180px;
+        max-height: 240px;
+    }
+}
+
+@media (max-width: 510.98px) {
+    .card {
+        max-width: 190px;
+        max-height: 250px;
+        padding: 20px;
+
+        b {
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width: 400.98px) {
+    .card {
+        max-width: 120px;
+        max-height: 250px;
+        padding: 20px;
+        border-radius: 30px;
+
+        b {
+            font-size: 13px;
+        }
+
+        .liked {
+            width: 25px;
+        }
+
+        .cardTitle {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .cardPrice {
+            font-size: 12px;
+        }
+
+        .btnCard {
+            width: 25px;
+        }
+    }
+}
+
+@media (max-width: 375.98px) {
+    .card {
+        max-width: 190px;
+        max-height: 200px;
+        padding: 10px;
+        border-radius: 15px;
+
+        b {
+            font-size: 10px;
+        }
+
+        .liked {
+            width: 20px;
+        }
+
+        .cardTitle {
+            font-size: 10px;
+        }
+
+        .cardPrice {
+            font-size: 10px;
+        }
+
+        .btnCard {
+            width: 23px;
+        }
+    }
+}
