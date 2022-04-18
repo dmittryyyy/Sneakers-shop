@@ -1,7 +1,7 @@
 import { React, useState, useContext } from 'react';
 import ContentLoader from 'react-content-loader';
 import { ThemeContext } from '../app/App';
-import './cardSneakers.scss';
+import './CardSneakers.scss';
 
 export const CardSneakers = ({ imgUrl, title, price, id, onAdd, onFavorite,
   loading = false, favorited = false }) => {

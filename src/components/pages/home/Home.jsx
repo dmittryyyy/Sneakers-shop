@@ -1,36 +1,36 @@
 import { Search } from '../../search/Search';
-// import { CardSneakers } from '../../cardSneakers/CardSneakers';
-// import { Slider } from '../../slider/Slider';
+import { CardSneakers } from '../../cardSneakers/CardSneakers';
+import { Slider } from '../../slider/Slider';
 
 import './Home.scss';
 
 export const Home = ({ sneakers, searchValue, setSearch, onAddToCart, onAddFavorite, loading, cartItems }) => {
 
-//   const renderSneakers = () => {
-//     const filterSneaker = sneakers.filter((item) =>
-//       item.title.toLowerCase().includes(searchValue)
-//     );
-//     return (loading ? [...Array(10)] : filterSneaker).map((item, index) => (
-//       <CardSneakers
-//         key={index}
-//         loading={loading}
-//         cartItems={cartItems}
-//         onFavorite={(obj) => onAddFavorite(obj)}
-//         onAdd={(obj) => onAddToCart(obj)}
-//         {...item}
-//       />
-//     ));
-//   };
+  const renderSneakers = () => {
+    const filterSneaker = sneakers.filter((item) =>
+      item.title.toLowerCase().includes(searchValue)
+    );
+    return (loading ? [...Array(10)] : filterSneaker).map((item, index) => (
+      <CardSneakers
+        key={index}
+        loading={loading}
+        cartItems={cartItems}
+        onFavorite={(obj) => onAddFavorite(obj)}
+        onAdd={(obj) => onAddToCart(obj)}
+        {...item}
+      />
+    ));
+  };
 
   return (
     <main>
-      {/* <Slider /> */}
+      <Slider />
 
       <Search searchValue={searchValue} setSearchValue={setSearch} />
 
-      {/* <div className='sneakersHome'>
+      <div className='sneakersHome'>
         {renderSneakers()}
-      </div> */}
+      </div>
     </main>
   )
 }
