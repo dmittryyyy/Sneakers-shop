@@ -16,19 +16,22 @@ export function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [getSneakers, getCart] = await Promise.all([
+        const [getSneakers, getCart, getFavorite] = await Promise.all([
           await axios.get('https://6253fc5019bc53e234769c4f.mockapi.io/sneakers'),
           await axios.get('https://6253fc5019bc53e234769c4f.mockapi.io/CartSneakers'),
+          await axios.get('https://6253fc5019bc53e234769c4f.mockapi.io/favoriteSneakers')
         ]);
         setIsLoading(false);
 
         setSneakers(getSneakers.data);
         setCartItems(getCart.data);
+        setFavorites(getFavorite.data);
       } catch (error) {
         alert('Не удалось получить данные')
       }
@@ -62,6 +65,20 @@ export function App() {
     }
   };
 
+  const onAddFavorite = async (obj) => {
+    try {
+      if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
+        setFavorites((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
+        axios.delete(`https://6253fc5019bc53e234769c4f.mockapi.io/favoriteSneakers/${obj.id}`);
+      } else {
+        const { data } = await axios.post('https://6253fc5019bc53e234769c4f.mockapi.io/favoriteSneakers', obj);
+        setFavorites((prev) => [...prev, data]);
+      }
+    } catch (error) {
+      alert('Не удалось добавить в избранное')
+    }
+  };
+
   const onRemoveCard = (id) => {
     try {
       axios.delete(`https://6253fc5019bc53e234769c4f.mockapi.io/CartSneakers/${id}`);
@@ -74,8 +91,8 @@ export function App() {
   return (
     <ThemeContext.Provider
       value={{
-        sneakers, cartItems, cartOpen,
-       setCartOpen, setCartItems, onRemoveCard
+        sneakers, cartItems, favorites, cartOpen,
+        onAddFavorite, setCartOpen, setCartItems, onRemoveCard
       }}>
 
       <div className="wrapper">
@@ -93,6 +110,7 @@ export function App() {
                 searchValue={searchValue}
                 setSearch={setSearchValue}
                 onAddToCart={onAddToCart}
+                onAddFavorite={onAddFavorite}
                 loading={isLoading} />
 
 
