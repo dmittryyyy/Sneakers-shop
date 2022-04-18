@@ -1,5 +1,6 @@
 import { React, useEffect, useState, createContext } from 'react';
 import axios from 'axios';
+import { Routes, Route } from 'react-router-dom';
 
 import { Header } from "../header/Header";
 import { Cart } from "../cart/Cart";
@@ -89,36 +90,37 @@ export function App() {
   };
 
   return (
-    <ThemeContext.Provider
-      value={{
-        sneakers, cartItems, favorites, cartOpen,
-        onAddFavorite, setCartOpen, setCartItems, onRemoveCard
-      }}>
+      <ThemeContext.Provider
+        value={{
+          sneakers, cartItems, favorites, cartOpen,
+          onAddFavorite, setCartOpen, setCartItems, onRemoveCard
+        }}>
 
-      <div className="wrapper">
-        <Header setCartOpen={setCartOpen} />
+        <div className="wrapper">
 
-        <Cart
-          onRemove={onRemoveCard}
-          setCartOpen={setCartOpen}
-          cartOpen={cartOpen}
-        />
+          <Header setCartOpen={setCartOpen} />
 
-        
+          <Cart
+            onRemove={onRemoveCard}
+            setCartOpen={setCartOpen}
+            cartOpen={cartOpen} />
+
+          <Routes>
+            <Route path='/' element={
               <Home sneakers={sneakers}
                 cartItems={cartItems}
                 searchValue={searchValue}
                 setSearch={setSearchValue}
                 onAddToCart={onAddToCart}
                 onAddFavorite={onAddFavorite}
-                loading={isLoading} />
+                loading={isLoading} />} />
 
+            <Route path="/favorite" element={<Favorite />} />
 
-       <Favorite />
+            <Route path='/orders' element={<Orders />} />
+          </Routes>
 
-          <Orders />
-
-      </div>
-    </ThemeContext.Provider>
+        </div>
+      </ThemeContext.Provider>
   );
 }

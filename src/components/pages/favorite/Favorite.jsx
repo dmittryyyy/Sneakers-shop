@@ -1,6 +1,6 @@
 import { React, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import {CardSneakers} from '../../cardSneakers/CardSneakers';
+import { CardSneakers } from '../../cardSneakers/CardSneakers';
 import { ThemeContext } from '../../app/App';
 import './Favorite.scss';
 
