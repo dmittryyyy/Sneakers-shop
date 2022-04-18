@@ -8,7 +8,7 @@ import './Cart.scss';
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const Cart = ({ onRemove, cartOpen, setCartOpen }) => {
-  const { cartItems, setCartItems, totalPrice, onRemoveCard } = useCart();
+  const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = useState(null);
   const [isSending, setIsSending] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +22,6 @@ export const Cart = ({ onRemove, cartOpen, setCartOpen }) => {
       setOrderId(data.id);
       setIsSending(true);
       setCartItems([]);
-      onRemoveCard(data.id)
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
         await axios.delete(`https://6253fc5019bc53e234769c4f.mockapi.io/CartSneakers/${item.id}`);

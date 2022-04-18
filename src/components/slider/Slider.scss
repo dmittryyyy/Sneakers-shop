@@ -36,17 +36,9 @@
     }
 }
 
-@media (max-width: 768.98px) {
-
-    .button-prev,
-    .button-next {
-        bottom: 40%;
-        width: 25px;
-    }
-}
-
 @media (max-width: 425.98px) {
     .swiper {
+        margin-bottom: 20px;
 
         .button-prev,
         .button-next {

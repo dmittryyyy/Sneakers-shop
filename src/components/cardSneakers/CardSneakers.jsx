@@ -26,7 +26,8 @@ export const CardSneakers = ({ imgUrl, title, price, id, onAdd, onFavorite,
   return (
     <div className="card">
       {loading ? (
-        <ContentLoader
+        <ContentLoader 
+          className='contentLoader'
           speed={2}
           width={210}
           height={260}

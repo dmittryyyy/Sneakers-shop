@@ -54,22 +54,11 @@
 
 @media (max-width: 510.98px) {
     .card {
-        max-width: 190px;
-        max-height: 250px;
-        padding: 20px;
-
-        b {
-            font-size: 13px;
-        }
-    }
-}
-
-@media (max-width: 400.98px) {
-    .card {
         max-width: 120px;
         max-height: 250px;
-        padding: 20px;
-        border-radius: 30px;
+        padding: 5px;
+        border-radius: 15px;
+        margin: 15px;
 
         b {
             font-size: 13px;
@@ -80,29 +69,34 @@
         }
 
         .cardTitle {
-            font-size: 12px;
+            font-size: 11px;
             margin-bottom: 10px;
         }
 
         .cardPrice {
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .btnCard {
             width: 25px;
         }
+
+    }
+    .contentLoader {
+        max-width: 140px;
+        max-height: 180px;
     }
 }
 
-@media (max-width: 375.98px) {
+@media (max-width: 400.98px) {
     .card {
-        max-width: 190px;
+        max-width: 100px;
         max-height: 200px;
         padding: 10px;
-        border-radius: 15px;
+        border-radius: 20px;
 
         b {
-            font-size: 10px;
+            font-size: 12px;
         }
 
         .liked {
@@ -110,15 +104,54 @@
         }
 
         .cardTitle {
-            font-size: 10px;
+            font-size: 8px;
+            margin-bottom: 5px;
         }
 
         .cardPrice {
-            font-size: 10px;
+            font-size: 12px;
+        }
+
+        b {
+            font-size: 8px;
         }
 
         .btnCard {
-            width: 23px;
+            width: 25px;
+        }
+    }
+    .contentLoader {
+        max-width: 100px;
+        max-height: 140px;
+    }
+}
+
+@media (max-width: 375.98px) {
+    .card {
+        max-width: 90px;
+        max-height: 200px;
+        padding: 5px;
+        margin: 10px;
+        border-radius: 15px;
+
+        b {
+            font-size: 8px;
+        }
+
+        .liked {
+            width: 15px;
+        }
+
+        .cardTitle {
+            font-size: 8px;
+        }
+
+        .cardPrice {
+            font-size: 8px;
+        }
+
+        .btnCard {
+            width: 20px;
         }
     }
 }
